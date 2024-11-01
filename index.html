@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sesion 11</title>
 </head>
+
 <body>
-    
+    <h1>Verificar mi nota</h1>
+    <label for="nota">Ingrese su calificacion (0 a 100):</label>
+    <input type="number" id="nota" min="0" max="100" step="0.1">
+    <button onclick="verificarNota()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarNota() {
+            // Obtener la nota del estudiante
+            let nota = document.getElementById('nota').value;
+
+            // Convertir la nota a un número
+            nota = parseFloat(nota);
+
+            // Verificar si la nota es válida
+            if (isNaN(nota) || nota < 0 || nota > 100) {
+                document.getElementById('resultado').innerText = "Por favor, introduce una nota válida entre 0 y 100.";
+            } else {
+                // Determinar si el estudiante está aprobado
+                if (nota >= 90) {
+                    document.getElementById('resultado').innerText = "Aprobado con honores.";
+                } else {
+                    if (nota >= 70) {
+                        document.getElementById('resultado').innerText = "Aprobado.";
+                    } else {
+                        if (nota < 70) {
+                            document.getElementById('resultado').innerText = "Reprobado.";
+                        }
+                    }
+
+                }
+            }
+        }
+
+    </script>
+
 </body>
+
 </html>
