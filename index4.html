@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Número</title>
+</head>
+<body>
+    <h1>Juego: Adivina el Número</h1>
+    <label for="adivinanza">Introduce tu adivinanza (1 a 100):</label>
+    <input type="number" id="adivinanza" min="1" max="100">
+    <button onclick="adivinarNumero()">Adivinar</button>
+    <p id="resultado"></p>
+
+    <script>
+        // Generar un número aleatorio entre 1 y 100
+        const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+        function adivinarNumero() {
+            // Obtener la adivinanza del usuario
+            let adivinanza = document.getElementById('adivinanza').value;
+
+            // Convertir la adivinanza a un número
+            adivinanza = parseInt(adivinanza);
+
+            // Verificar si la adivinanza es válida
+            if (isNaN(adivinanza) || adivinanza < 1 || adivinanza > 100) {
+                document.getElementById('resultado').innerText = "Por favor, introduce un número válido entre 1 y 100.";
+            } else {
+                // Comparar la adivinanza con el número aleatorio
+                if (adivinanza === numeroAleatorio) {
+                    document.getElementById('resultado').innerText = "¡Felicidades! Adivinaste el número.";
+                } else {
+                    document.getElementById('resultado').innerText = "No adivinaste. El número era " + numeroAleatorio + ". Inténtalo de nuevo.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
