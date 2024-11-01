@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion 11</title>
+</head>
+
+<body>
+    <h1>Determinar si un Número es Par o Impar</h1>
+    <label for="numero">Introduce un número:</label>
+    <input type="number" id="numero">
+    <button onclick="verificarParImpar()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarParImpar() {
+            // Obtener el número ingresado
+            let numero = document.getElementById('numero').value;
+
+            // Convertir el número a un entero
+            numero = parseInt(numero);
+
+            // Verificar si el número es válido
+            if (isNaN(numero)) {
+                document.getElementById('resultado').innerText = "Por favor, introduce un número válido.";
+            } else {
+                // Determinar si el número es par o impar
+                if (numero % 2 === 0) {
+                    document.getElementById('resultado').innerText = "El número " + numero + " es par.";
+                } else {
+                    document.getElementById('resultado').innerText = "El número " + numero + " es impar.";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
