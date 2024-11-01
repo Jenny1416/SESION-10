@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Descuento</title>
+</head>
+<body>
+    <h1>Calcular Descuento en la Compra</h1>
+    <label for="monto">Introduce el monto total de tu compra:</label>
+    <input type="number" id="monto" step="0.01">
+    <button onclick="calcularDescuento()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularDescuento() {
+            // Obtener el monto de la compra
+            let monto = document.getElementById('monto').value;
+
+            // Convertir el monto a un número
+            monto = parseFloat(monto);
+
+            // Verificar si el monto es válido
+            if (isNaN(monto) || monto < 0) {
+                document.getElementById('resultado').innerText = "Por favor, introduce un monto válido.";
+            } else {
+                // Calcular el descuento si corresponde
+                let montoFinal;
+                if (monto > 100) {
+                    montoFinal = monto * 0.9; // Aplicar 10% de descuento
+                } else {
+                    montoFinal = monto; // No aplicar descuento
+                }
+
+                // Mostrar el monto final a pagar
+                document.getElementById('resultado').innerText = "El monto final a pagar es: $" + montoFinal.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
